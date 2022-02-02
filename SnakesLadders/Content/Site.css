@@ -1,24 +1,226 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.board {
+    background-image: url('/Images/SnakesLadders.png');
+    background-size: cover;
+    width: 500px;
+    height: 500px;
+    position: relative;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+    .board .player {
+        width: 10%;
+        height: 10%;
+        position: absolute;
+        display: inline-block;
+        transition: margin linear 1s;
+    }
+
+        .board .player .pawn {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+            .board .player .pawn::after {
+                content: '';
+                width: 30%;
+                height: 30%;
+                display: block;
+                margin-top: 10%;
+                margin-left: 10%;
+            }
+
+        .board .player.row-1 {
+            margin-top: 90%;
+        }
+
+        .board .player.row-2 {
+            margin-top: 80%;
+        }
+
+        .board .player.row-3 {
+            margin-top: 70%;
+        }
+
+        .board .player.row-4 {
+            margin-top: 60%;
+        }
+
+        .board .player.row-5 {
+            margin-top: 50%;
+        }
+
+        .board .player.row-6 {
+            margin-top: 40%;
+        }
+
+        .board .player.row-7 {
+            margin-top: 30%;
+        }
+
+        .board .player.row-8 {
+            margin-top: 20%;
+        }
+
+        .board .player.row-9 {
+            margin-top: 10%;
+        }
+
+        .board .player.row-10 {
+            margin-top: 0;
+        }
+
+        .board .player.col-1 {
+            margin-left: 0;
+        }
+
+        .board .player.col-2 {
+            margin-left: 10%;
+        }
+
+        .board .player.col-3 {
+            margin-left: 20%;
+        }
+
+        .board .player.col-4 {
+            margin-left: 30%;
+        }
+
+        .board .player.col-5 {
+            margin-left: 40%;
+        }
+
+        .board .player.col-6 {
+            margin-left: 50%;
+        }
+
+        .board .player.col-7 {
+            margin-left: 60%;
+        }
+
+        .board .player.col-8 {
+            margin-left: 70%;
+        }
+
+        .board .player.col-9 {
+            margin-left: 80%;
+        }
+
+        .board .player.col-10 {
+            margin-left: 90%;
+        }
+
+    .board .player-1 {
+    }
+
+        .board .player-1 .pawn::after {
+            background-color: red;
+        }
+
+    .board .player-2 .pawn {
+        padding-left: 50%;
+    }
+
+        .board .player-2 .pawn::after {
+            background-color: green;
+        }
+
+    .board .player-3 .pawn {
+        padding-top: 50%;
+    }
+
+        .board .player-3 .pawn::after {
+            background-color: blue;
+        }
+
+    .board .player-4 .pawn {
+        padding-left: 50%;
+        padding-top: 50%;
+    }
+
+        .board .player-4 .pawn::after {
+            background-color: yellow;
+        }
+
+
+.players {
+    width: 500px;
+    position: relative;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+    .players input[type=radio] {
+        position: absolute;
+        right: 200%;
+    }
+
+        .players input[type=radio][data-player='0']:checked ~ .player[data-player='0']::after {
+            display: none;
+        }
+
+        .players input[type=radio][data-player='1']:checked ~ .player[data-player='1']::after {
+            display: none;
+        }
+
+        .players input[type=radio][data-player='2']:checked ~ .player[data-player='2']::after {
+            display: none;
+        }
+
+        .players input[type=radio][data-player='3']:checked ~ .player[data-player='3']::after {
+            display: none;
+        }
+
+    .players .player {
+        display: inline-block;
+        width: 25%;
+        position: relative;
+    }
+
+        .players .player::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: rgba(0,0,0,0.75);
+        }
+
+        .players .player label {
+            cursor: pointer;
+            display: block;
+        }
+
+    .players .player-1 {
+        background-color: red;
+    }
+
+    .players .player-2 {
+        background-color: green;
+    }
+
+    .players .player-3 {
+        background-color: blue;
+        color: white;
+    }
+
+    .players .player-4 {
+        background-color: yellow;
+    }
+
+.end {
+    display: none;
 }
+
+    .end.ended {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.75);
+        color: black;
+        text-align: center;
+    }
